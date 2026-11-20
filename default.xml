@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote  name="aosp" fetch=".." review="https://android-review.googlesource.com/" />
-  <remote name="github" fetch="https://github.com/Luoxueowo" />
   <default revision="main-kernel-2025" remote="aosp" sync-j="4" />
 
   <superproject name="kernel/superproject" remote="aosp" revision="common-android16-6.12-lts" />
@@ -74,7 +73,6 @@
   <project path="external/rust/crates/zune-inflate" name="platform/external/rust/crates/zune-inflate" />
   <project path="prebuilts/fuchsia_sdk" name="platform/prebuilts/fuchsia_sdk" clone-depth="1" />
   <project path="system/core" name="platform/system/core" />
-
-  <!-- Xiaomi MIX 2S (polaris) 高通平台层 -->
-  <project path="vendor/qcom/sdm845" name="android_kernel_qcom_sdm845_612" remote="github" revision="polaris" />
+  
+  <include name="polaris.xml" />
 </manifest>
