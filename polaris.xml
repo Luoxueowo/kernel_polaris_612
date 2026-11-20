@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Xiaomi MIX 2S (polaris) 机型项目。
-  由 default.xml 通过 <include> 引入，repo init 默认即生效。
--->
+
 <manifest>
 
   <remote name="github" fetch="https://github.com/Luoxueowo" />
@@ -12,5 +9,11 @@
            name="android_kernel_qcom_sdm845_612"
            remote="github"
            revision="polaris" />
+
+  <!-- polaris device tree: boot config, first-stage init and fstab -->
+  <project path="device/xiaomi/polaris"
+           name="kernel_polaris_612"
+           remote="github"
+           revision="AOSP" />
 
 </manifest>
