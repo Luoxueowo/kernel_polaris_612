@@ -1,0 +1,22 @@
+Polaris Kernel 6.12
+===================
+
+Getting started
+---------------
+
+AOSP common kernel (android16-6.12-lts) with the Qualcomm sdm845 platform
+repository, for the Xiaomi MIX 2S (polaris).
+
+To initialize your local repository, use a command like this:
+```
+repo init -u https://github.com/Luoxueowo/kernel_polaris_612.git -b main
+```
+Then to sync up:
+```
+repo sync -j8 --no-tags
+```
+
+Build the boot image:
+```
+tools/bazel run //vendor/qcom/sdm845:sdm845_perf_dist
+```
