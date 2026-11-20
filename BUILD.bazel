@@ -1,0 +1,12 @@
+package(default_visibility = ["//visibility:public"])
+
+# First-stage ramdisk payload for Xiaomi MIX 2S (polaris / sdm845).
+# init and fstab.qcom are taken from the AOSP polaris product output,
+# matching the `generated init aosp:system/core/init` / `file system/etc/fstab.qcom`
+# entries in ramdisk.list. The sdm845 legacy boot genrule copies these into the
+# ramdisk assembled from the kleaf initramfs.
+exports_files([
+    "boot_config.bzl",
+    "ramdisk/init",
+    "ramdisk/system/etc/fstab.qcom",
+])

@@ -1,0 +1,28 @@
+# First-stage ramdisk for Xiaomi MIX 2S (polaris / sdm845).
+#
+# In the full AOSP product build the entries below are materialized by
+# build/make into $OUT/ramdisk. This kernel-only tree reproduces the same
+# payload in the kleaf sdm845 legacy boot genrule (android_build.bzl), using
+# the files exported by BUILD.bazel here as the source of truth.
+
+# init: static first-stage init cross-compiled by AOSP from system/core/init.
+# The binary is checked in under ramdisk/ because this tree has no bionic,
+# so it cannot be rebuilt here.
+file init                       ramdisk/init
+
+# Device-specific first-stage mount table (AOSP polaris product output).
+file system/etc/fstab.qcom      ramdisk/system/etc/fstab.qcom
+
+# Fixed directories created by build/make/core/Makefile.
+dir debug_ramdisk 0755 0 0
+dir dev 0755 0 0
+dir metadata 0755 0 0
+dir mnt 0755 0 0
+dir proc 0755 0 0
+dir second_stage_resources 0755 0 0
+dir sys 0755 0 0
+
+# Device nodes from system/core/rootdir/ramdisk_node_list.
+nod dev/null 0600 0 0 c 1 3
+nod dev/console 0600 0 0 c 5 1
+nod dev/urandom 0600 0 0 c 1 9
